@@ -1,20 +1,22 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:karu/core/usecase/errors/failures.dart';
 import 'package:karu/features/domain/entities/product_entity.dart';
 import 'package:karu/features/domain/usecases/CreateNewProductUseCase.dart';
 import 'package:mockito/mockito.dart';
 import 'package:uuid/uuid.dart';
 import 'package:karu/features/domain/repositories/product_repository.dart';
+//modified
+import 'package:mockito/annotations.dart';
 
-class MockProductRepository extends Mock implements IProductRepository {}
+import 'create_new_product_test.mocks.dart';
 
+@GenerateMocks([IProductRepository])
 void main() {
   late CreateNewProductUseCase usecase;
   late IProductRepository repository;
 
   setUp(() {
-    repository = MockProductRepository();
+    repository = MockIProductRepository();
     usecase = CreateNewProductUseCase(repository);
   });
 
@@ -29,13 +31,13 @@ void main() {
   );
 
   test('should create a new product', () async {
-    when(repository.Create(product))
-        .thenAnswer((_) async => Right<Failure, ProductEntity>(product));
+    when(repository.create(item: product))
+        .thenAnswer((_) async => Right(product));
 
     final result = await usecase(product);
 
-    expect(result, product);
-    verify(repository.Create(product));
+    expect(result, Right(product));
+    verify(repository.create(item: product)).called(1);
     verifyNoMoreInteractions(repository);
   });
 }
