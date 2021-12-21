@@ -1,4 +1,4 @@
-import 'package:karu/features/domain/entities/entity.dart';
+import 'package:karu/core/bean/entity.dart';
 
 class ProductEntity extends Entity {
   final String uuid;

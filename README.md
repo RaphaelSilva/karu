@@ -1,2 +1,2 @@
-# karu
-This is an presentation layer developed in Flutter to Inventory project  
+# Hi there! it is Karu inventory application 
+To controller itens and products saved into a inventory or 
