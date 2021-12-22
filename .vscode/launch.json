@@ -9,7 +9,7 @@
             "name": "Dart: Run a Test",
             "type": "dart",
             "request": "launch",
-            "program": "${workspaceFolderBasename}/test/features/domain/usescases/create_new_product_test.dart",
+            "program": "${workspaceFolderBasename}/test/features/data/datasources/product_realtime_test.dart",
             "args": [
                 "--pause-isolates-on-exit"
             ]

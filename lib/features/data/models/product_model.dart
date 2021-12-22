@@ -1,19 +1,24 @@
 import 'package:karu/features/domain/entities/product_entity.dart';
 
-class ProductModel extends ProductEntity {
+class ProductModel implements ProductEntity {
+  @override
+  String? uuid;
+  @override
+  String name;
+  @override
+  String description;
+  @override
+  String imageUrl;
+  @override
+  double costPrice;
+
   ProductModel({
-    required String uuid,
-    required String name,
-    required String description,
-    required String imageUrl,
-    required double costPrice,
-  }) : super(
-          uuid: uuid,
-          name: name,
-          description: description,
-          imageUrl: imageUrl,
-          costPrice: costPrice,
-        );
+    this.uuid,
+    required this.name,
+    required this.description,
+    required this.imageUrl,
+    required this.costPrice,
+  });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
         uuid: json["uuid"],
@@ -30,4 +35,12 @@ class ProductModel extends ProductEntity {
         "imageUrl": imageUrl,
         "costPrice": costPrice,
       };
+
+  factory ProductModel.fromEntity(ProductEntity product) => ProductModel(
+        uuid: product.uuid ?? '',
+        name: product.name,
+        description: product.description,
+        imageUrl: product.imageUrl,
+        costPrice: product.costPrice,
+      );
 }
