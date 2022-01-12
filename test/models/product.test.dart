@@ -4,7 +4,7 @@ import 'package:uuid/uuid.dart';
 
 void main() {
   test('should instance a product', () async {
-    final uuid = Uuid();
+    const uuid = Uuid();
     final uuidValue = uuid.v4();
     final product = ProductModel(
         uuid: uuidValue,

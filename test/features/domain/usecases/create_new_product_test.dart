@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:karu/features/domain/entities/product_entity.dart';
-import 'package:karu/features/domain/usecases/CreateNewProductUseCase.dart';
+import 'package:karu/features/domain/usecases/create.new.product.usecase.dart';
 import 'package:mockito/mockito.dart';
 import 'package:uuid/uuid.dart';
 import 'package:karu/features/domain/repositories/product_repository.dart';
@@ -20,7 +20,7 @@ void main() {
     usecase = CreateNewProductUseCase(repository);
   });
 
-  final uuid = Uuid();
+  const uuid = Uuid();
   final uuidValue = uuid.v4();
   final product = ProductEntity(
     uuid: uuidValue,

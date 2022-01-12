@@ -5,8 +5,10 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
+// import 'package:build_runner/build_script_generate.dart';
+// import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+// import 'package:karu/features/presenter/pages/home.dart';
 
 import 'package:karu/main.dart';
 
@@ -16,15 +18,14 @@ void main() {
     await tester.pumpWidget(const MyApp());
 
     // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('Menu de Ações'), findsOneWidget);
+    expect(find.text('Clientes'), findsOneWidget);
+    expect(find.text('Fornecedores'), findsOneWidget);
+    expect(find.text('Produtos'), findsOneWidget);
+    expect(find.text('Categorias de produtos'), findsOneWidget);
 
     // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // await tester.tap(find.byIcon(Icons.add));
+    // await tester.pump();
   });
 }
